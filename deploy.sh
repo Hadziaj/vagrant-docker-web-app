@@ -25,5 +25,5 @@ vagrant ssh -c "sudo chmod 666 /var/run/docker.sock"
 echo "Wchodze do wspoldzielonego folderu i odpalam Dockera..."
 vagrant ssh -c "cd /vagrant && docker-compose up -d"
 
-# Print the application URL
+# Podaje link do web appki
 echo "Web appka dziala i chodzi pod adresem: http://localhost:9090"
