@@ -17,6 +17,10 @@ else
     echo 'Docker jest juz zainstalowany.';
 fi"
 
+#fix malego problemu, pewnie jest sposob na mniej security nightmare rozwiazanie, ale go nie znam w tym momencie
+echo "Ustawiam uprawnienia dla Dockera" 
+vagrant ssh -c "sudo chmod 666 /var/run/docker.sock"
+
 # Wejscie do wspoldzielonego folderu z VMka
 echo "Wchodze do wspoldzielonego folderu i odpalam Dockera..."
 vagrant ssh -c "cd /vagrant && docker-compose up -d"
