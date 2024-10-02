@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Koniec od razu jeśli jakakolwiek komenda sie nie uda
+#Koniec od razu jeśli jakakolwiek komenda sie nie uda
 set -e
 
-# Start vmki
+#Start vmki
 echo "Startuje Vagrant VM..."
 vagrant up
 
-# Instaluje 
+#Instaluje 
 echo "Sprawdzam czy Docker jest zainstalowany..."
 vagrant ssh -c "if ! docker --version &>/dev/null; then
     echo 'Instaluje Dockera...';
@@ -21,9 +21,9 @@ fi"
 echo "Ustawiam uprawnienia dla Dockera" 
 vagrant ssh -c "sudo chmod 666 /var/run/docker.sock"
 
-# Wejscie do wspoldzielonego folderu z VMka
+#Wejscie do wspoldzielonego folderu z VMka
 echo "Wchodze do wspoldzielonego folderu i odpalam Dockera..."
 vagrant ssh -c "cd /vagrant && docker-compose up -d"
 
-# Podaje link do web appki
+#Podaje link do web appki
 echo "Web appka dziala i chodzi pod adresem: http://localhost:9090"
